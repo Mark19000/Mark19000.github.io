@@ -156,7 +156,9 @@ body.modal-open { overflow: hidden; }
 .modal-head h2 { margin: 0; font-size: clamp(48px, 7vw, 88px); line-height: .9; letter-spacing: -.07em; font-weight: 570; }
 .modal-head > div:first-child > p:last-child { max-width: 650px; margin: 24px 0 0; color: #c6cdc8; font-size: 18px; line-height: 1.55; }
 .modal-status { display: flex; flex-direction: column; gap: 10px; padding: 18px; border-left: 1px solid var(--line); color: #7c8882; font: 9px var(--font-geist-mono); text-transform: uppercase; }
-.modal-external { width: max-content; margin-top: 8px; padding-bottom: 5px; border-bottom: 1px solid #53605a; color: var(--acid); }
+.modal-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.modal-links:empty { display: none; }
+.modal-external { width: max-content; padding-bottom: 5px; border-bottom: 1px solid #53605a; color: var(--acid); }
 .modal-external:hover, .modal-external:focus-visible { border-color: var(--acid); color: var(--text); outline: none; }
 .modal-status span:first-child { color: var(--acid); }
 .project-gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 220px); gap: 8px; }

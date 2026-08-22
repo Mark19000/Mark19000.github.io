@@ -4,7 +4,8 @@
  * Para añadir un proyecto:
  * 1. Copia uno de los bloques dentro de `projectContent`.
  * 2. Cambia `slug`, `image`, `hardware`, `software`, `es` y `en`.
- *    `url` es opcional y añade un enlace externo dentro del case study.
+ *    `url` añade la web del proyecto y `repository` su repositorio de código.
+ *    Ambos son opcionales y aparecen automáticamente dentro del case study.
  * 3. Guarda su imagen en `/public/projects/` y escribe aquí la ruta `/projects/nombre.png`.
  *
  * El orden de los bloques es el orden de la web. Los números y la navegación
@@ -31,6 +32,7 @@ type ProjectContent = {
   visual?: string;
   image: string;
   url?: string;
+  repository?: string;
   hardware: string[];
   software: string[];
   es: Translation;
@@ -45,6 +47,7 @@ export const projectContent: ProjectContent[] = [
     stack: 'ESP32-S3 · MicroPython · LVGL',
     visual: 'micro',
     image: '/projects/ppi-nofono.png',
+    repository: 'https://github.com/Mark19000/MicroPythonOS',
     hardware: ['ESP32-S3 N16R8', 'ESP32 WROOM', 'ILI9488', 'XPT2046', '8 MB PSRAM'],
     software: ['MicroPython', 'C/C++', 'LVGL', 'SPI', 'State machines'],
     es: {
@@ -153,6 +156,7 @@ export const projectContent: ProjectContent[] = [
     stack: 'RP2040 · C++ · Arduino-Pico · I²C',
     visual: 'pms',
     image: '/projects/pms2-emulator.png',
+    repository: 'https://github.com/Mark19000/pms2-rp2040',
     url: 'https://github.com/Mark19000/pms2-rp2040',
     hardware: ['RP2040 / Pico', '3.3 V I²C', 'External pull-ups', 'Logic analyser'],
     software: ['C++17', 'Arduino-Pico', 'PlatformIO', 'Host protocol tests'],
@@ -240,6 +244,7 @@ export function getProjects(locale: Locale): Project[] {
     visual: project.visual,
     image: project.image,
     url: project.url,
+    repository: project.repository,
     hardware: project.hardware,
     software: project.software,
     ...project[locale],
