@@ -4,6 +4,7 @@
  * Para añadir un proyecto:
  * 1. Copia uno de los bloques dentro de `projectContent`.
  * 2. Cambia `slug`, `image`, `hardware`, `software`, `es` y `en`.
+ *    `url` es opcional y añade un enlace externo dentro del case study.
  * 3. Guarda su imagen en `/public/projects/` y escribe aquí la ruta `/projects/nombre.png`.
  *
  * El orden de los bloques es el orden de la web. Los números y la navegación
@@ -29,6 +30,7 @@ type ProjectContent = {
   stack: string;
   visual?: string;
   image: string;
+  url?: string;
   hardware: string[];
   software: string[];
   es: Translation;
@@ -39,33 +41,33 @@ export type Project = Omit<ProjectContent, 'es' | 'en'> & Translation & { id: st
 
 export const projectContent: ProjectContent[] = [
   {
-    slug: 'micropython-os',
+    slug: 'ppi-nofono',
     stack: 'ESP32-S3 · MicroPython · LVGL',
     visual: 'micro',
-    image: '/projects/micropythonos.png',
+    image: '/projects/ppi-nofono.png',
     hardware: ['ESP32-S3 N16R8', 'ESP32 WROOM', 'ILI9488', 'XPT2046', '8 MB PSRAM'],
     software: ['MicroPython', 'C/C++', 'LVGL', 'SPI', 'State machines'],
     es: {
-      name: 'MicroPythonOS',
-      status: 'Experimental avanzado',
-      label: 'Arquitectura distribuida',
-      intro: 'Una consola modular distribuida entre varios microcontroladores.',
-      body: 'Una placa funciona como CPU principal y otra como PPU/southbridge para gráficos y periféricos. Las conecta un protocolo SPI propio con sincronización, longitud y checksum.',
-      challenge: 'Coordinar máquinas de estados, buffers, límites de transferencia, PSRAM y portabilidad entre distintas placas.',
-      built: 'Un sistema dividido entre una CPU principal y una segunda placa dedicada a gráficos, entrada y periféricos. El prototipo utiliza una pantalla ILI9488 de 480×320, touch XPT2046 y una interfaz construida con LVGL.',
-      why: 'Quería explorar hasta dónde puede crecer un sistema formado por microcontroladores cuando la arquitectura, en lugar del hardware, se convierte en el centro del diseño.',
-      learned: 'Diseñar el framing de un protocolo, recuperarse de paquetes incompletos y separar responsabilidades son tan importantes como conseguir que la primera demo funcione.',
+      name: 'Pπ-nófono',
+      status: 'En desarrollo activo',
+      label: 'Teléfono modular embebido',
+      intro: 'Un teléfono completo construido alrededor de varios microcontroladores y una plataforma de aplicaciones propia.',
+      body: 'No es solo un sistema operativo: integra el dispositivo, la interfaz, la entrada, las comunicaciones internas y las apps. Una placa actúa como CPU y otra como PPU/southbridge para gráficos y periféricos.',
+      challenge: 'Coordinar la experiencia completa del teléfono —apps, navegación, rendering, entrada y comunicación entre placas— dentro de límites estrictos de memoria y transferencia.',
+      built: 'Una arquitectura de teléfono distribuida entre una CPU principal y una segunda placa dedicada a gráficos, entrada y periféricos. El sistema incluye un runtime de apps, pantalla ILI9488 de 480×320, touch XPT2046 y una interfaz construida con LVGL.',
+      why: 'Quería construir un dispositivo completo y utilizable desde sus capas más bajas, haciendo que hardware, protocolo, sistema y aplicaciones formen un único producto.',
+      learned: 'En un dispositivo completo, el ciclo de vida de las apps, la comunicación robusta y los límites claros entre hardware y experiencia de usuario deben diseñarse juntos.',
     },
     en: {
-      name: 'MicroPythonOS',
-      status: 'Advanced experiment',
-      label: 'Distributed architecture',
-      intro: 'A modular console distributed across multiple microcontrollers.',
-      body: 'One board acts as the main CPU while another works as a PPU/southbridge for graphics and peripherals. A custom SPI protocol connects them with synchronization, length and checksum fields.',
-      challenge: 'Coordinating state machines, buffers, transfer limits, PSRAM and portability across different boards.',
-      built: 'A system split between a main CPU and a second board dedicated to graphics, input and peripherals. The prototype uses a 480×320 ILI9488 display, XPT2046 touch and an LVGL interface.',
-      why: 'I wanted to explore how far a microcontroller-based system can grow when architecture, rather than a single hardware feature, becomes the center of the design.',
-      learned: 'Protocol framing, recovery from incomplete packets and clear responsibility boundaries matter as much as getting the first demo to run.',
+      name: 'Pπ-nófono',
+      status: 'Active development',
+      label: 'Modular embedded phone',
+      intro: 'A complete phone built around multiple microcontrollers and its own application platform.',
+      body: 'It is more than an operating system: it brings together the device, interface, input, internal communications and apps. One board acts as the CPU while another works as a PPU/southbridge for graphics and peripherals.',
+      challenge: 'Coordinating the complete phone experience—apps, navigation, rendering, input and inter-board communication—within strict memory and transfer constraints.',
+      built: 'A phone architecture distributed between a main CPU and a second board dedicated to graphics, input and peripherals. It includes an app runtime, a 480×320 ILI9488 display, XPT2046 touch and an LVGL interface.',
+      why: 'I wanted to build a complete, usable device from its lowest layers, turning hardware, protocol, system and applications into one product.',
+      learned: 'In a complete device, app lifecycle, robust communication and clear boundaries between hardware and user experience must be designed together.',
     },
   },
   {
@@ -151,6 +153,7 @@ export const projectContent: ProjectContent[] = [
     stack: 'RP2040 · C++ · Arduino-Pico · I²C',
     visual: 'pms',
     image: '/projects/pms2-emulator.png',
+    url: 'https://github.com/Mark19000/pms2-rp2040',
     hardware: ['RP2040 / Pico', '3.3 V I²C', 'External pull-ups', 'Logic analyser'],
     software: ['C++17', 'Arduino-Pico', 'PlatformIO', 'Host protocol tests'],
     es: {
@@ -198,6 +201,36 @@ export const projectContent: ProjectContent[] = [
       learned: 'A viable port needs small milestones: early console, storage, display and input before approaching GPU, audio or power management.',
     },
   },
+  {
+    slug: 'super-unity-maker',
+    stack: 'Unity · C# · 2D Level Editor',
+    image: '/projects/super-unity-maker.png',
+    url: 'https://marcmerono.itch.io/super-unity-maker',
+    hardware: ['Windows PC', 'Keyboard', 'Mouse'],
+    software: ['Unity', 'C#', 'Unity 2D', 'Level editor', 'Pixel art'],
+    es: {
+      name: 'Super Unity Maker',
+      status: 'Publicado · Proyecto de secundaria',
+      label: 'Game development',
+      intro: 'Un plataformas 2D con editor de niveles integrado, inspirado en Super Mario Maker.',
+      body: 'El jugador puede construir sus propios niveles dentro del juego, probarlos inmediatamente y experimentar con las piezas, obstáculos y posibilidades del sistema.',
+      challenge: 'Unificar el modo de edición y el modo de juego para que colocar elementos, validar el nivel y empezar a jugar formen parte del mismo flujo.',
+      built: 'Un juego completo para Windows desarrollado en Unity durante secundaria, con plataformas 2D, pixel art, interacción y un creador de niveles accesible desde el propio juego.',
+      why: 'Quería convertir la programación aprendida en un producto jugable y explorar cómo una herramienta creativa puede formar parte del propio videojuego.',
+      learned: 'Construir editor y juego a la vez me enseñó a organizar estados, interacción, físicas, interfaz y contenido como partes de un mismo sistema.',
+    },
+    en: {
+      name: 'Super Unity Maker',
+      status: 'Released · High-school project',
+      label: 'Game development',
+      intro: 'A 2D platformer with a built-in level editor, inspired by Super Mario Maker.',
+      body: 'Players can build their own levels inside the game, test them immediately and experiment with the system’s pieces, obstacles and possibilities.',
+      challenge: 'Bringing edit mode and play mode together so placing elements, validating a level and playing it feel like one continuous workflow.',
+      built: 'A complete Windows game developed in Unity during high school, combining 2D platforming, pixel art, interaction and an in-game level creator.',
+      why: 'I wanted to turn what I was learning in programming into a playable product and explore how a creative tool could live inside the game itself.',
+      learned: 'Building the editor and the game together taught me to organize states, interaction, physics, UI and content as parts of one system.',
+    },
+  },
 ];
 
 export function getProjects(locale: Locale): Project[] {
@@ -206,6 +239,7 @@ export function getProjects(locale: Locale): Project[] {
     stack: project.stack,
     visual: project.visual,
     image: project.image,
+    url: project.url,
     hardware: project.hardware,
     software: project.software,
     ...project[locale],

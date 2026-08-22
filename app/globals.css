@@ -108,8 +108,7 @@ details[open] summary span { transform: rotate(45deg); }
 .project-stack { border-inline: 1px solid var(--line); }
 .project-row { min-height: 540px; display: grid; grid-template-columns: 72px 1fr 1fr; gap: 42px; padding: 64px 34px; border-bottom: 1px solid var(--line); background: #0a0e0d; }
 .project-row:nth-child(even) { background: #0d1110; }
-.project-row:hover, .project-row:focus-visible { background: #0d1311; }
-.project-row:nth-child(even):hover, .project-row:nth-child(even):focus-visible { background: #111715; }
+.project-row:hover, .project-row:focus-visible, .project-row:nth-child(even):hover, .project-row:nth-child(even):focus-visible { background: #141b18; }
 .project-row .project-copy h3 { font-size: clamp(38px, 4vw, 58px); }
 .project-row .project-meta { margin-bottom: 38px; }
 .project-visual { align-self: stretch; min-height: 360px; display: grid; place-items: center; overflow: hidden; position: relative; border: 1px solid #2b3531; background-color: #0c100f; background-image: linear-gradient(#151b19 1px, transparent 1px), linear-gradient(90deg, #151b19 1px, transparent 1px); background-size: 20px 20px; }
@@ -157,6 +156,8 @@ body.modal-open { overflow: hidden; }
 .modal-head h2 { margin: 0; font-size: clamp(48px, 7vw, 88px); line-height: .9; letter-spacing: -.07em; font-weight: 570; }
 .modal-head > div:first-child > p:last-child { max-width: 650px; margin: 24px 0 0; color: #c6cdc8; font-size: 18px; line-height: 1.55; }
 .modal-status { display: flex; flex-direction: column; gap: 10px; padding: 18px; border-left: 1px solid var(--line); color: #7c8882; font: 9px var(--font-geist-mono); text-transform: uppercase; }
+.modal-external { width: max-content; margin-top: 8px; padding-bottom: 5px; border-bottom: 1px solid #53605a; color: var(--acid); }
+.modal-external:hover, .modal-external:focus-visible { border-color: var(--acid); color: var(--text); outline: none; }
 .modal-status span:first-child { color: var(--acid); }
 .project-gallery { display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: repeat(2, 220px); gap: 8px; }
 .project-gallery figure { min-width: 0; min-height: 0; position: relative; overflow: hidden; margin: 0; border: 1px solid #2f3a35; background: #050807; }
