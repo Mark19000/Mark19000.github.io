@@ -210,6 +210,7 @@ export const projectContent: ProjectContent[] = [
     stack: 'Unity · C# · 2D Level Editor',
     image: '/projects/super-unity-maker.png',
     url: 'https://marcmerono.itch.io/super-unity-maker',
+    repository: 'https://marcmerono.itch.io/super-unity-maker',
     hardware: ['Windows PC', 'Keyboard', 'Mouse'],
     software: ['Unity', 'C#', 'Unity 2D', 'Level editor', 'Pixel art'],
     es: {
